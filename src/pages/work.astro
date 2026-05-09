@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+import projects from '../data/projects.json';
+const categories = ['All', ...Array.from(new Set(projects.map(p => p.category)))];
+---
+<Base
+  title="Work — GALVEC Studio"
+  description="Selected fabrication-ready aluminum projects: staircases, façades, railings, and custom systems delivered to fabricators across the US and Canada."
+>
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">01 / Work</span>
+      <h1 style="margin-top: var(--space-3); max-width: 14ch;">Selected projects</h1>
+      <p style="margin-top: var(--space-4); max-width: 60ch;">
+        Selected fabrication-ready projects delivered to shops across the United
+        States and Canada — staircases, façades, railings, and custom aluminum
+        systems. All drawings produced in Autodesk Inventor and AutoCAD; renders
+        generated from production geometry.
+      </p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="container">
+      <div class="filters" role="tablist" aria-label="Filter projects by category">
+        {categories.map(cat => (
+          <button
+            class="filter"
+            data-filter={cat}
+            aria-pressed={cat === 'All'}
+          >{cat}</button>
+        ))}
+      </div>
+
+      <div class="grid grid-3 project-grid" style="margin-top: var(--space-5);">
+        {projects.map(p => (
+          <article class="card project-card" data-category={p.category}>
+            <div class="project-card__cover blueprint">
+              <span class="mono">{p.title}</span>
+            </div>
+            <div class="card__num" style="margin-top: var(--space-3);">
+              {p.category} · {p.client_type} · {p.year}
+            </div>
+            <h3 class="card__title" style="font-size: var(--step-1); margin-top: var(--space-2);">
+              {p.title}
+            </h3>
+            <p style="margin-top: var(--space-2);">{p.summary}</p>
+            <p class="mono" style="margin-top: var(--space-3); color: var(--accent); font-size: 0.85rem;">
+              Outcome — {p.outcome}
+            </p>
+            <ul class="deliverables">
+              {p.deliverables.map(d => <li>{d}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    border-top: var(--rule);
+    padding-top: var(--space-4);
+  }
+  .filter {
+    background: transparent;
+    border: 1px solid var(--aluminum);
+    padding: 0.55rem 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    transition: all 0.15s ease;
+  }
+  .filter:hover { border-color: var(--ink); color: var(--ink); }
+  .filter[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .project-card__cover {
+    aspect-ratio: 16 / 9;
+    border: 1px dashed var(--aluminum);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+  }
+  .deliverables {
+    margin-top: var(--space-3);
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--aluminum);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .deliverables li {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--aluminum);
+  }
+</style>
+
+<script>
+  const filters = document.querySelectorAll<HTMLButtonElement>('.filter');
+  const cards = document.querySelectorAll<HTMLElement>('.project-card[data-category]');
+
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.filter;
+      filters.forEach(b => b.setAttribute('aria-pressed', String(b === btn)));
+      cards.forEach(card => {
+        const match = target === 'All' || card.dataset.category === target;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  });
+</script>

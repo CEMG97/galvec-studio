@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 100" role="img" aria-label="GALVEC Studio">
+  <title>GALVEC Studio</title>
+  <g>
+    <path d="M 76 28 A 36 36 0 1 0 76 72"
+          fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="square"/>
+    <path d="M 36 36 L 50 58 L 64 36"
+          fill="none" stroke="#1A1A1A" stroke-width="6"
+          stroke-linecap="square" stroke-linejoin="miter"/>
+  </g>
+  <text x="120" y="58"
+        font-family="'Space Grotesk', 'Inter', sans-serif"
+        font-size="38" font-weight="600"
+        letter-spacing="4" fill="#1A1A1A">GALVEC</text>
+  <text x="121" y="78"
+        font-family="'IBM Plex Mono', monospace"
+        font-size="10" font-weight="400"
+        letter-spacing="3.6" fill="#0A2540">ENGINEERING · STUDIO</text>
+</svg>

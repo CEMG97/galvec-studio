@@ -1,0 +1,32 @@
+[
+  {
+    "slug": "helix-12",
+    "title": "HELIX-12",
+    "category": "Staircases",
+    "client_type": "Residential",
+    "year": 2024,
+    "summary": "47-component helical aluminum staircase, ±0.5 mm tolerance spec. Inventor model + 23-sheet drawing package + BOM delivered to fabricator in 8 days.",
+    "outcome": "Installed in 3 days · zero RFIs.",
+    "deliverables": ["Inventor model", "Shop drawings", "BOM"]
+  },
+  {
+    "slug": "vertex-curtain-wall",
+    "title": "VERTEX",
+    "category": "Façades",
+    "client_type": "Commercial",
+    "year": 2024,
+    "summary": "Unitized aluminum curtain wall — 86 panels, 4 typologies, full thermal-break detail set. Pre-fabrication constructability review caught 12 detail conflicts before cutting.",
+    "outcome": "Zero on-site rework on 3-story façade.",
+    "deliverables": ["SolidWorks assembly", "Shop drawings", "Constructability report"]
+  },
+  {
+    "slug": "halo-railing",
+    "title": "HALO",
+    "category": "Railings",
+    "client_type": "Commercial",
+    "year": 2023,
+    "summary": "Cable-tension aluminum railing system, 240 linear feet across rooftop terrace. Code-compliant per ASTM E985 with documented load calculations.",
+    "outcome": "Permit issued first submission.",
+    "deliverables": ["Inventor model", "Shop drawings", "Load calc package"]
+  }
+]

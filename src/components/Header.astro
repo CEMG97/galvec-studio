@@ -1,0 +1,133 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const nav = [
+  { href: `${base}/work`, label: 'Work' },
+  { href: `${base}/services`, label: 'Services' },
+  { href: `${base}/expertise`, label: 'Expertise' },
+  { href: `${base}/contact`, label: 'Contact' }
+];
+const path = Astro.url.pathname.replace(/\/$/, '');
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href={base || '/'} class="brand" aria-label="GALVEC Studio — home">
+      <svg viewBox="0 0 100 100" class="brand__icon" aria-hidden="true">
+        <path d="M 76 28 A 36 36 0 1 0 76 72" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square"/>
+        <path d="M 36 36 L 50 58 L 64 36" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>
+      </svg>
+      <span class="brand__name">GALVEC</span>
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        {nav.map(item => (
+          <li>
+            <a
+              href={item.href}
+              class:list={["site-nav__link", { active: path === item.href.replace(/\/$/, '') }]}
+            >{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <a href={`${base}/contact`} class="btn btn--ghost site-header__cta">Quote →</a>
+
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: var(--rule);
+  }
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.1rem;
+    gap: var(--space-4);
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--ink);
+  }
+  .brand__icon { width: 28px; height: 28px; }
+  .brand__name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    font-size: 1.05rem;
+  }
+  .site-nav ul {
+    display: flex;
+    gap: var(--space-5);
+  }
+  .site-nav__link {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding-block: 0.5rem;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .site-nav__link:hover, .site-nav__link.active {
+    color: var(--ink);
+    border-color: var(--ink);
+  }
+  .site-header__cta { padding: 0.55rem 1rem; }
+  .nav-toggle {
+    display: none;
+    width: 40px; height: 40px;
+    background: transparent;
+    border: 1px solid var(--ink);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--ink);
+  }
+
+  @media (max-width: 820px) {
+    .site-nav, .site-header__cta { display: none; }
+    .nav-toggle { display: flex; }
+    .site-nav.is-open {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0; right: 0;
+      background: var(--paper);
+      border-bottom: var(--rule);
+      padding: var(--space-4) var(--container-pad);
+    }
+    .site-nav.is-open ul {
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.querySelector('.site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(!!open));
+  });
+</script>

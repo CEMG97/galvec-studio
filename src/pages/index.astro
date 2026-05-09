@@ -1,0 +1,163 @@
+---
+import Base from '../layouts/Base.astro';
+import projects from '../data/projects.json';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const featured = projects.slice(0, 3);
+---
+<Base
+  title="GALVEC Studio — Aluminum Engineering & Fabrication-Ready 3D Modeling"
+  description="GALVEC delivers Inventor and SolidWorks models, tolerance-checked assemblies, and AISC-compliant shop drawings for fabrication shops across the US and Canada."
+>
+  <!-- HERO -->
+  <section class="section hero">
+    <div class="container">
+      <span class="eyebrow">GALVEC Studio · Aluminum Engineering</span>
+      <h1 class="hero__h">
+        Fabrication-ready aluminum.<br/>
+        <span class="hero__h-accent">Engineered upstream of your shop floor.</span>
+      </h1>
+      <p class="hero__sub">
+        We deliver Inventor and SolidWorks models, tolerance-checked assemblies,
+        and AISC-compliant shop drawings — built for fabricators across the US
+        and Canada who can't afford rework.
+      </p>
+      <div class="hero__cta">
+        <a href={`${base}/work`} class="btn">View selected projects →</a>
+        <a href={`${base}/contact`} class="btn btn--ghost">Request a quote</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- STATS -->
+  <section class="section--tight">
+    <div class="container">
+      <div class="grid grid-3">
+        <div class="stat">
+          <div class="stat__value">120+</div>
+          <p class="stat__label">Aluminum assemblies delivered to North American fab shops.</p>
+        </div>
+        <div class="stat">
+          <div class="stat__value">±0.5 <span class="mono" style="font-size:0.5em">mm</span></div>
+          <p class="stat__label">Standard tolerance spec on parametric assemblies.</p>
+        </div>
+        <div class="stat">
+          <div class="stat__value">3–5 <span class="mono" style="font-size:0.5em">days</span></div>
+          <p class="stat__label">Typical turnaround on full shop drawing packages.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <span class="section-num">02 / What we do</span>
+      <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-5); max-width: 18ch;">
+        Three engagement tiers. One engineering standard.
+      </h2>
+
+      <div class="grid grid-3">
+        <article class="card">
+          <div class="card__num">01 / Modeling</div>
+          <h3 class="card__title">Parametric 3D Modeling</h3>
+          <p>Inventor and SolidWorks assemblies built for fabricability — every part editable, every tolerance documented. BOM included.</p>
+        </article>
+        <article class="card">
+          <div class="card__num">02 / Documentation</div>
+          <h3 class="card__title">Shop Drawings</h3>
+          <p>AISC and AWS compliant drawing sets your CNC, press brake, and welders can build from directly. No interpretation required.</p>
+        </article>
+        <article class="card">
+          <div class="card__num">03 / Audit</div>
+          <h3 class="card__title">Constructability Review</h3>
+          <p>Pre-fabrication audit of architect drawings. Catch detail conflicts before they become RFIs on the shop floor.</p>
+        </article>
+      </div>
+
+      <div style="margin-top: var(--space-5);">
+        <a href={`${base}/services`} class="link-arrow">Full services breakdown →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- FEATURED PROJECTS -->
+  <section class="section">
+    <div class="container">
+      <span class="section-num">03 / Selected work</span>
+      <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-5);">Recent fabrication-ready projects</h2>
+
+      <div class="grid grid-3">
+        {featured.map(p => (
+          <article class="card project-card">
+            <div class="project-card__cover blueprint" aria-hidden="true">
+              <span class="mono">{p.title}</span>
+            </div>
+            <div class="card__num" style="margin-top: var(--space-3);">
+              {p.category} · {p.client_type} · {p.year}
+            </div>
+            <p style="margin-top: var(--space-2);">{p.summary}</p>
+            <p class="mono" style="margin-top: var(--space-3); color: var(--accent); font-size: 0.85rem;">
+              Outcome — {p.outcome}
+            </p>
+          </article>
+        ))}
+      </div>
+
+      <div style="margin-top: var(--space-5);">
+        <a href={`${base}/work`} class="link-arrow">All projects →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <!-- CTA -->
+  <section class="section blueprint">
+    <div class="container" style="text-align:center;">
+      <h2 style="max-width: 22ch; margin-inline: auto;">
+        Outsourcing your engineering shouldn't feel like outsourcing risk.
+      </h2>
+      <div style="margin-top: var(--space-5);">
+        <a href={`${base}/contact`} class="btn">Talk to GALVEC →</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { padding-block: var(--space-8) var(--space-6); }
+  .hero__h {
+    margin-top: var(--space-4);
+    max-width: 18ch;
+    line-height: 1.05;
+  }
+  .hero__h-accent { color: var(--accent); }
+  .hero__sub {
+    margin-top: var(--space-4);
+    font-size: var(--step-1);
+    max-width: 56ch;
+    color: var(--muted);
+  }
+  .hero__cta {
+    margin-top: var(--space-5);
+    display: flex;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+  }
+  .project-card__cover {
+    aspect-ratio: 16 / 9;
+    border: 1px dashed var(--aluminum);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+  }
+</style>
