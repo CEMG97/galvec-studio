@@ -1,0 +1,151 @@
+---
+import Base from '../../layouts/Base.astro';
+import projects from '../../data/projects.json';
+
+export function getStaticPaths() {
+  return projects.map(p => ({
+    params: { slug: p.slug },
+    props: { project: p }
+  }));
+}
+
+const { project } = Astro.props;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const projectAssets = `${base}/projects/${project.slug}`;
+---
+<Base
+  title={`${project.title} — GALVEC Studio`}
+  description={project.summary}
+>
+  <section class="section">
+    <div class="container">
+      <a href={`${base}/work`} class="back-link mono">← Back to all projects</a>
+      <span class="eyebrow" style="margin-top: var(--space-4); display: block;">{project.category}</span>
+      <h1 style="margin-top: var(--space-3); max-width: 24ch;">{project.title}</h1>
+      <p style="margin-top: var(--space-4); max-width: 60ch;">{project.summary}</p>
+    </div>
+  </section>
+
+  <section class="section--tight">
+    <div class="container">
+      <figure class="hero-figure">
+        <img
+          src={`${projectAssets}/${project.hero}`}
+          alt={project.title}
+          loading="eager"
+        />
+      </figure>
+    </div>
+  </section>
+
+  {project.renders.length > 0 && (
+    <section class="section--tight">
+      <div class="container">
+        <span class="section-num">3D renders · parametric Inventor model</span>
+        <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-5);">Modeling</h2>
+        <div class="image-grid">
+          {project.renders.map(file => (
+            <figure class="grid-figure">
+              <img src={`${projectAssets}/${file}`} alt="" loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {project.photos.length > 0 && (
+    <section class="section--tight">
+      <div class="container">
+        <span class="section-num">Built · real installation</span>
+        <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-5);">In the field</h2>
+        <div class="photo-grid">
+          {project.photos.map(file => (
+            <figure class="grid-figure">
+              <img src={`${projectAssets}/${file}`} alt="" loading="lazy" />
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {project.drawing && (
+    <section class="section--tight">
+      <div class="container">
+        <span class="section-num">Welding / fabrication drawings · representative sheet</span>
+        <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-3);">Documentation</h2>
+        <p style="margin-bottom: var(--space-5); max-width: 56ch; color: var(--muted);">
+          Excerpt from the welding assembly drawing set delivered to the fab shop.
+          Full dimensioning, base-plate detail callouts, and welded connections.
+          Complete drawing packages available on request.
+        </p>
+        <figure class="drawing-figure">
+          <img src={`${projectAssets}/${project.drawing}`} alt="Welding assembly drawing" loading="lazy" />
+        </figure>
+      </div>
+    </section>
+  )}
+
+  <section class="section">
+    <div class="container" style="text-align: center;">
+      <a href={`${base}/contact`} class="btn">Discuss a similar project →</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .back-link {
+    color: var(--muted);
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    transition: color 0.15s ease;
+  }
+  .back-link:hover { color: var(--ink); }
+  .hero-figure {
+    border: 1px solid var(--aluminum);
+    background: var(--paper);
+    overflow: hidden;
+  }
+  .hero-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 70vh;
+    object-fit: contain;
+  }
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-3);
+  }
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: var(--space-3);
+  }
+  .grid-figure {
+    border: 1px solid var(--aluminum);
+    background: var(--paper);
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+  }
+  .grid-figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  .grid-figure:hover img { transform: scale(1.03); }
+  .drawing-figure {
+    border: 1px solid var(--aluminum);
+    background: white;
+    padding: var(--space-3);
+  }
+  .drawing-figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

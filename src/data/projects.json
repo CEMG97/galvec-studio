@@ -1,32 +1,147 @@
 [
   {
-    "slug": "helix-12",
-    "title": "HELIX-12",
+    "slug": "friendly-laundry-canopies",
+    "title": "Friendly Laundry — Aluminum Canopies",
+    "category": "Custom",
+    "summary": "Set of aluminum canopies for a commercial laundry facility in Florida. Parametric Inventor model + complete fabrication drawings including welded assembly details.",
+    "hero": "render-c1-a.jpg",
+    "renders": [
+      "render-c1-a.jpg",
+      "render-c1-a1.jpg",
+      "render-c1-b.jpg",
+      "render-c1-b1.jpg",
+      "render-c1-c.jpg",
+      "render-c1-c1.jpg",
+      "render-c2-a.jpg",
+      "render-c2-a1.jpg",
+      "render-c2-b.jpg",
+      "render-c2-b1.jpg",
+      "render-c2-c.jpg",
+      "render-c2-c1.jpg"
+    ],
+    "photos": [],
+    "drawing": "drawing-1.jpg"
+  },
+  {
+    "slug": "claredon-exterior-stair",
+    "title": "Claredon — Exterior Stair & Railing",
     "category": "Staircases",
-    "client_type": "Residential",
-    "year": 2024,
-    "summary": "47-component helical aluminum staircase, ±0.5 mm tolerance spec. Inventor model + 23-sheet drawing package + BOM delivered to fabricator in 8 days.",
-    "outcome": "Installed in 3 days · zero RFIs.",
-    "deliverables": ["Inventor model", "Shop drawings", "BOM"]
+    "summary": "Exterior steel stair with custom railing system. Fully welded assembly delivered with shop drawings and installation guide. Built and installed in Florida.",
+    "hero": "site-claredon1.jpg",
+    "renders": [],
+    "photos": [
+      "site-claredon1.jpg",
+      "site-claredon2.jpg",
+      "site-claredon3.jpg"
+    ],
+    "drawing": "drawing-1.jpg"
   },
   {
-    "slug": "vertex-curtain-wall",
-    "title": "VERTEX",
-    "category": "Façades",
-    "client_type": "Commercial",
-    "year": 2024,
-    "summary": "Unitized aluminum curtain wall — 86 panels, 4 typologies, full thermal-break detail set. Pre-fabrication constructability review caught 12 detail conflicts before cutting.",
-    "outcome": "Zero on-site rework on 3-story façade.",
-    "deliverables": ["SolidWorks assembly", "Shop drawings", "Constructability report"]
+    "slug": "interior-stair-railing-i",
+    "title": "Interior Stair & Railing — Project I",
+    "category": "Staircases",
+    "summary": "Modern interior stair with horizontal-bar aluminum railing. Multi-flight assembly with full dimensioning, base-plate detail callouts, and welding drawings.",
+    "hero": "render-1.jpg",
+    "renders": [
+      "render-1.jpg",
+      "render-2.jpg",
+      "render-3.jpg",
+      "render-4.jpg",
+      "render-5.jpg",
+      "render-6.jpg",
+      "render-7.jpg"
+    ],
+    "photos": [],
+    "drawing": "drawing-1.jpg"
   },
   {
-    "slug": "halo-railing",
-    "title": "HALO",
+    "slug": "interior-stair-railing-ii",
+    "title": "Interior Stair II — Steel Substructure + Railing",
+    "category": "Staircases",
+    "summary": "Full lifecycle delivery in two phases: first the structural steel substructure with welded neck connections, then the aluminum stair and railing assembly mounted on top. Both phases include complete welding and installation drawings.",
+    "hero": "site-steel-structure-bs1.jpg",
+    "renders": [],
+    "photos": [
+      "site-steel-structure-bs1.jpg",
+      "site-steel-structure-bs2.jpg",
+      "site-steel-structure-bs3.jpg",
+      "site-steel-structure-st1.jpg",
+      "site-steel-structure-st2.jpg",
+      "site-steel-structure-st3.jpg",
+      "site-stair-railing-str1.jpg",
+      "site-stair-railing-str2.jpg",
+      "site-stair-railing-str3.jpg",
+      "site-stair-railing-str4.jpg"
+    ],
+    "drawing": "drawing-1.jpg"
+  },
+  {
+    "slug": "interior-stair-railing-iii",
+    "title": "Interior Stair & Railing — Project III",
+    "category": "Staircases",
+    "summary": "Modern residential stair with wood treads and stainless steel cable railing. Parametric Inventor model with structural details and section views.",
+    "hero": "render-ph-1.jpg",
+    "renders": [
+      "render-ph-1.jpg",
+      "render-ph-2.jpg",
+      "render-ph-3.jpg",
+      "render-ph-4.jpg",
+      "render-ph-5.jpg",
+      "render-ph-6.jpg",
+      "render-ph-7.jpg",
+      "render-ph-8.jpg",
+      "render-ph-9.jpg"
+    ],
+    "photos": [],
+    "drawing": "drawing-1.jpg"
+  },
+  {
+    "slug": "interior-stair-railing-iv",
+    "title": "Interior Stair & Railing — Project IV",
+    "category": "Staircases",
+    "summary": "Interior staircase with custom aluminum railing. Includes installation drawings (INST_STR) and detailed section views (SEC-1, SEC-2).",
+    "hero": "render-rev00-1.jpg",
+    "renders": [
+      "render-rev00-1.jpg",
+      "render-rev00-2.jpg",
+      "render-rev00-3.jpg",
+      "render-rev00-4.jpg",
+      "render-rev00-5.jpg",
+      "render-rev00-6.jpg"
+    ],
+    "photos": [],
+    "drawing": "drawing-1.jpg"
+  },
+  {
+    "slug": "balcony-railings",
+    "title": "Balcony Railings",
     "category": "Railings",
-    "client_type": "Commercial",
-    "year": 2023,
-    "summary": "Cable-tension aluminum railing system, 240 linear feet across rooftop terrace. Code-compliant per ASTM E985 with documented load calculations.",
-    "outcome": "Permit issued first submission.",
-    "deliverables": ["Inventor model", "Shop drawings", "Load calc package"]
+    "summary": "Aluminum balcony railing system. Parametric model with full fabrication drawings, post connection details, and weld assembly callouts.",
+    "hero": "render-balcony-1tt.jpg",
+    "renders": [
+      "render-balcony-1tt.jpg",
+      "render-balcony-2tt.jpg",
+      "render-balcony-3tt.jpg",
+      "render-balcony-4tt.jpg"
+    ],
+    "photos": [],
+    "drawing": "drawing-1.jpg"
+  },
+  {
+    "slug": "friendly-laundry-roof-ladder",
+    "title": "Friendly Laundry — Roof Access Ladder",
+    "category": "Custom",
+    "summary": "OSHA-compliant roof access ladder with safety cage. Parametric Inventor model with complete fabrication drawings (20-sheet set) including welded assembly and connection details.",
+    "hero": "render-ral-1.jpg",
+    "renders": [
+      "render-ral-1.jpg",
+      "render-ral-1a.jpg",
+      "render-ral-2.jpg",
+      "render-ral-2a.jpg",
+      "render-ral-3.jpg",
+      "render-ral-3a.jpg"
+    ],
+    "photos": [],
+    "drawing": "drawing-1.jpg"
   }
 ]

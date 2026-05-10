@@ -3,6 +3,9 @@ dist/
 .astro/
 *.zip
 
+# raw source material — kept locally, not versioned (heavy, OneDrive-backed)
+trabajos/
+
 # dependencies
 node_modules/
 
