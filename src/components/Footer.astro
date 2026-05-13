@@ -6,7 +6,11 @@ const year = new Date().getFullYear();
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <span class="footer-mark">GALVEC STUDIO</span>
+        <img
+          src={`${base}/galvec-lockup.svg`}
+          alt="GALVEC Studio"
+          class="footer-lockup"
+        />
         <p class="mono footer-tagline">Aluminum Engineering · Fabrication-ready 3D modeling and shop drawings for North American fabrication shops.</p>
       </div>
 
@@ -60,13 +64,12 @@ const year = new Date().getFullYear();
     margin-bottom: var(--space-5);
   }
   .footer-brand { max-width: 36ch; }
-  .footer-mark {
-    font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    font-size: 0.95rem;
+  .footer-lockup {
+    width: 160px;
+    height: auto;
     display: block;
-    margin-bottom: var(--space-3);
+    margin-bottom: var(--space-4);
+    margin-left: -8px; /* compensate the SVG's internal left padding */
   }
   .footer-tagline {
     font-size: 0.82rem;

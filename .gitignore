@@ -5,6 +5,7 @@ dist/
 
 # raw source material — kept locally, not versioned (heavy, OneDrive-backed)
 trabajos/
+logo/
 
 # dependencies
 node_modules/
