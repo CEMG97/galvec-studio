@@ -3,30 +3,27 @@
     "slug": "friendly-laundry-canopies",
     "title": "Friendly Laundry — Aluminum Canopies",
     "category": "Custom",
-    "summary": "Set of aluminum canopies for a commercial laundry facility in Florida. Parametric Inventor model + complete fabrication drawings including welded assembly details.",
-    "hero": "render-c1-a.jpg",
+    "summary": "Set of aluminum canopies for a commercial laundry facility in Florida. Parametric Inventor model built to support a complete fabrication-drawing package, with welded assembly details delivered to the shop.",
+    "hero": "render-c1-a1.jpg",
     "renders": [
-      "render-c1-a.jpg",
       "render-c1-a1.jpg",
-      "render-c1-b.jpg",
       "render-c1-b1.jpg",
-      "render-c1-c.jpg",
       "render-c1-c1.jpg",
-      "render-c2-a.jpg",
       "render-c2-a1.jpg",
-      "render-c2-b.jpg",
       "render-c2-b1.jpg",
-      "render-c2-c.jpg",
       "render-c2-c1.jpg"
     ],
     "photos": [],
-    "drawing": "drawing-1.jpg"
+    "drawings": [
+      "drawing-01.jpg",
+      "drawing-02.jpg"
+    ]
   },
   {
     "slug": "claredon-exterior-stair",
     "title": "Claredon — Exterior Stair & Railing",
     "category": "Staircases",
-    "summary": "Exterior steel stair with custom railing system. Fully welded assembly delivered with shop drawings and installation guide. Built and installed in Florida.",
+    "summary": "Exterior steel stair with custom railing system, built and installed in Florida. Engineered with a fully detailed fabrication package; the installation drawings reproduced here guided the on-site crew.",
     "hero": "site-claredon1.jpg",
     "renders": [],
     "photos": [
@@ -34,13 +31,24 @@
       "site-claredon2.jpg",
       "site-claredon3.jpg"
     ],
-    "drawing": "drawing-1.jpg"
+    "drawings": [
+      "drawing-01.jpg",
+      "drawing-02.jpg",
+      "drawing-03.jpg",
+      "drawing-04.jpg",
+      "drawing-05.jpg",
+      "drawing-06.jpg",
+      "drawing-07.jpg",
+      "drawing-08.jpg",
+      "drawing-09.jpg",
+      "drawing-10.jpg"
+    ]
   },
   {
     "slug": "interior-stair-railing-i",
     "title": "Interior Stair & Railing — Project I",
     "category": "Staircases",
-    "summary": "Modern interior stair with horizontal-bar aluminum railing. Multi-flight assembly with full dimensioning, base-plate detail callouts, and welding drawings.",
+    "summary": "Modern interior stair with horizontal-bar aluminum railing. Multi-flight assembly modeled in Inventor with a full fabrication package — base-plate callouts, weld details, and connection drawings — plus the installation set shown here.",
     "hero": "render-1.jpg",
     "renders": [
       "render-1.jpg",
@@ -52,34 +60,51 @@
       "render-7.jpg"
     ],
     "photos": [],
-    "drawing": "drawing-1.jpg"
+    "drawings": [
+      "drawing-01.jpg",
+      "drawing-02.jpg",
+      "drawing-03.jpg",
+      "drawing-04.jpg",
+      "drawing-05.jpg",
+      "drawing-06.jpg",
+      "drawing-07.jpg"
+    ]
   },
   {
     "slug": "interior-stair-railing-ii",
     "title": "Interior Stair II — Steel Substructure + Railing",
     "category": "Staircases",
-    "summary": "Full lifecycle delivery in two phases: first the structural steel substructure with welded neck connections, then the aluminum stair and railing assembly mounted on top. Both phases include complete welding and installation drawings.",
-    "hero": "site-steel-structure-bs1.jpg",
+    "summary": "Two-phase delivery: first the steel substructure with welded neck connections embedded into the wood-finished base, then the aluminum stair and railing assembly mounted on top. Each phase shipped with its own complete fabrication package; the three installation sets are shown below in build order.",
+    "hero": "site-stair-railing-str1.jpg",
     "renders": [],
     "photos": [
+      "site-stair-railing-str1.jpg",
+      "site-stair-railing-str2.jpg",
+      "site-stair-railing-str3.jpg",
+      "site-stair-railing-str4.jpg",
       "site-steel-structure-bs1.jpg",
       "site-steel-structure-bs2.jpg",
       "site-steel-structure-bs3.jpg",
       "site-steel-structure-st1.jpg",
       "site-steel-structure-st2.jpg",
-      "site-steel-structure-st3.jpg",
-      "site-stair-railing-str1.jpg",
-      "site-stair-railing-str2.jpg",
-      "site-stair-railing-str3.jpg",
-      "site-stair-railing-str4.jpg"
+      "site-steel-structure-st3.jpg"
     ],
-    "drawing": "drawing-1.jpg"
+    "drawings": [
+      "drawing-01.jpg",
+      "drawing-02.jpg",
+      "drawing-03.jpg",
+      "drawing-04.jpg",
+      "drawing-05.jpg",
+      "drawing-06.jpg",
+      "drawing-07.jpg",
+      "drawing-08.jpg"
+    ]
   },
   {
     "slug": "interior-stair-railing-iii",
     "title": "Interior Stair & Railing — Project III",
     "category": "Staircases",
-    "summary": "Modern residential stair with wood treads and stainless steel cable railing. Parametric Inventor model with structural details and section views.",
+    "summary": "Modern residential stair with cable-railing system. Modeled parametrically in Inventor and delivered with a full fabrication drawing package; the installation sheet shown here was the on-site reference.",
     "hero": "render-ph-1.jpg",
     "renders": [
       "render-ph-1.jpg",
@@ -93,13 +118,15 @@
       "render-ph-9.jpg"
     ],
     "photos": [],
-    "drawing": "drawing-1.jpg"
+    "drawings": [
+      "drawing-01.jpg"
+    ]
   },
   {
     "slug": "interior-stair-railing-iv",
     "title": "Interior Stair & Railing — Project IV",
     "category": "Staircases",
-    "summary": "Interior staircase with custom aluminum railing. Includes installation drawings (INST_STR) and detailed section views (SEC-1, SEC-2).",
+    "summary": "Interior staircase with custom aluminum railing. Parametric Inventor model fed a complete fabrication and section-view drawing package; the installation set (INST_STR) is reproduced below.",
     "hero": "render-rev00-1.jpg",
     "renders": [
       "render-rev00-1.jpg",
@@ -110,13 +137,55 @@
       "render-rev00-6.jpg"
     ],
     "photos": [],
-    "drawing": "drawing-1.jpg"
+    "drawings": [
+      "drawing-01.jpg",
+      "drawing-02.jpg",
+      "drawing-03.jpg"
+    ]
+  },
+  {
+    "slug": "interior-stair-railing-v",
+    "title": "Interior Stair & Railing — Project V",
+    "category": "Staircases",
+    "summary": "Interior stair assembly with hardware-detailed connections. Full fabrication package developed in Inventor, delivered alongside the installation drawings shown below.",
+    "hero": "render-str1c.jpg",
+    "renders": [
+      "render-str1c.jpg",
+      "render-str1cc.jpg",
+      "render-str2c.jpg",
+      "render-str2cc.jpg",
+      "render-str3c.jpg",
+      "render-str4c.jpg"
+    ],
+    "photos": [],
+    "drawings": [
+      "drawing-01.jpg",
+      "drawing-02.jpg"
+    ]
+  },
+  {
+    "slug": "interior-stair-railing-vi",
+    "title": "Interior Stair & Railing — Project VI",
+    "category": "Staircases",
+    "summary": "Interior stair and railing with structural and finish details modeled in Inventor. The complete fabrication package was issued to the shop; the installation set is reproduced below.",
+    "hero": "render-1.jpg",
+    "renders": [
+      "render-1.jpg",
+      "render-2.jpg",
+      "render-3.jpg",
+      "render-4.jpg"
+    ],
+    "photos": [],
+    "drawings": [
+      "drawing-01.jpg",
+      "drawing-02.jpg"
+    ]
   },
   {
     "slug": "balcony-railings",
     "title": "Balcony Railings",
     "category": "Railings",
-    "summary": "Aluminum balcony railing system. Parametric model with full fabrication drawings, post connection details, and weld assembly callouts.",
+    "summary": "Aluminum balcony railing system spanning multiple balcony types. Parametric Inventor model produced a complete fabrication package with post-connection details and weld assembly callouts. Two installation drawing sets are reproduced below in sequence.",
     "hero": "render-balcony-1tt.jpg",
     "renders": [
       "render-balcony-1tt.jpg",
@@ -125,23 +194,47 @@
       "render-balcony-4tt.jpg"
     ],
     "photos": [],
-    "drawing": "drawing-1.jpg"
+    "drawings": [
+      "drawing-01.jpg",
+      "drawing-02.jpg",
+      "drawing-03.jpg",
+      "drawing-04.jpg",
+      "drawing-05.jpg",
+      "drawing-06.jpg",
+      "drawing-07.jpg",
+      "drawing-08.jpg",
+      "drawing-09.jpg",
+      "drawing-10.jpg",
+      "drawing-11.jpg",
+      "drawing-12.jpg",
+      "drawing-13.jpg",
+      "drawing-14.jpg",
+      "drawing-15.jpg",
+      "drawing-16.jpg",
+      "drawing-17.jpg",
+      "drawing-18.jpg",
+      "drawing-19.jpg",
+      "drawing-20.jpg",
+      "drawing-21.jpg",
+      "drawing-22.jpg",
+      "drawing-23.jpg",
+      "drawing-24.jpg"
+    ]
   },
   {
     "slug": "friendly-laundry-roof-ladder",
     "title": "Friendly Laundry — Roof Access Ladder",
     "category": "Custom",
-    "summary": "OSHA-compliant roof access ladder with safety cage. Parametric Inventor model with complete fabrication drawings (20-sheet set) including welded assembly and connection details.",
-    "hero": "render-ral-1.jpg",
+    "summary": "OSHA-compliant roof access ladder with safety cage. Engineered with a complete fabrication drawing package — welded assembly, cage details, and shop callouts; the installation sheet is reproduced below.",
+    "hero": "render-ral-1a.jpg",
     "renders": [
-      "render-ral-1.jpg",
       "render-ral-1a.jpg",
-      "render-ral-2.jpg",
       "render-ral-2a.jpg",
-      "render-ral-3.jpg",
       "render-ral-3a.jpg"
     ],
     "photos": [],
-    "drawing": "drawing-1.jpg"
+    "drawings": [
+      "drawing-01.jpg"
+    ]
   }
 ]

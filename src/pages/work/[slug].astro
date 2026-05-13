@@ -70,19 +70,34 @@ const projectAssets = `${base}/projects/${project.slug}`;
     </section>
   )}
 
-  {project.drawing && (
+  {project.drawings && project.drawings.length > 0 && (
     <section class="section--tight">
       <div class="container">
-        <span class="section-num">Welding / fabrication drawings · representative sheet</span>
+        <span class="section-num">Installation drawings · {project.drawings.length} {project.drawings.length === 1 ? 'sheet' : 'sheets'}</span>
         <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-3);">Documentation</h2>
-        <p style="margin-bottom: var(--space-5); max-width: 56ch; color: var(--muted);">
-          Excerpt from the welding assembly drawing set delivered to the fab shop.
-          Full dimensioning, base-plate detail callouts, and welded connections.
-          Complete drawing packages available on request.
-        </p>
-        <figure class="drawing-figure">
-          <img src={`${projectAssets}/${project.drawing}`} alt="Welding assembly drawing" loading="lazy" />
-        </figure>
+        <div class="drawing-notice">
+          <p>
+            <strong>Installation drawings shown.</strong>
+            Every project ships with a complete fabrication-detailed shop drawing package —
+            base-plate callouts, weld symbols, member-by-member dimensioning, hardware
+            schedules, and revision-controlled section views. The sheets below are the
+            installation set the on-site crew worked from.
+          </p>
+        </div>
+        <div class="drawing-grid">
+          {project.drawings.map((file, idx) => (
+            <button
+              type="button"
+              class="drawing-tile"
+              data-src={`${projectAssets}/${file}`}
+              data-label={`Sheet ${idx + 1} of ${project.drawings.length}`}
+              aria-label={`Open sheet ${idx + 1} of ${project.drawings.length} fullscreen`}
+            >
+              <img src={`${projectAssets}/${file}`} alt="" loading="lazy" />
+              <span class="drawing-tile__num mono">{String(idx + 1).padStart(2, '0')} / {String(project.drawings.length).padStart(2, '0')}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   )}
@@ -92,7 +107,48 @@ const projectAssets = `${base}/projects/${project.slug}`;
       <a href={`${base}/contact`} class="btn">Discuss a similar project →</a>
     </div>
   </section>
+
+  <dialog id="lightbox" class="lightbox">
+    <button type="button" class="lightbox__close mono" aria-label="Close">Close ✕</button>
+    <button type="button" class="lightbox__nav lightbox__nav--prev mono" aria-label="Previous sheet">‹</button>
+    <button type="button" class="lightbox__nav lightbox__nav--next mono" aria-label="Next sheet">›</button>
+    <figure class="lightbox__figure">
+      <img id="lightbox-img" alt="" />
+      <figcaption id="lightbox-cap" class="mono"></figcaption>
+    </figure>
+  </dialog>
 </Base>
+
+<script>
+  const dialog = document.getElementById('lightbox') as HTMLDialogElement | null;
+  const img = document.getElementById('lightbox-img') as HTMLImageElement | null;
+  const cap = document.getElementById('lightbox-cap');
+  const tiles = Array.from(document.querySelectorAll<HTMLButtonElement>('.drawing-tile'));
+  if (dialog && img && cap && tiles.length) {
+    let idx = 0;
+    const show = (i: number) => {
+      idx = (i + tiles.length) % tiles.length;
+      const t = tiles[idx];
+      img.src = t.dataset.src || '';
+      cap.textContent = t.dataset.label || '';
+    };
+    tiles.forEach((t, i) => t.addEventListener('click', () => {
+      show(i);
+      if (!dialog.open) dialog.showModal();
+    }));
+    dialog.querySelector('.lightbox__close')?.addEventListener('click', () => dialog.close());
+    dialog.querySelector('.lightbox__nav--prev')?.addEventListener('click', () => show(idx - 1));
+    dialog.querySelector('.lightbox__nav--next')?.addEventListener('click', () => show(idx + 1));
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) dialog.close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (!dialog.open) return;
+      if (e.key === 'ArrowLeft') show(idx - 1);
+      if (e.key === 'ArrowRight') show(idx + 1);
+    });
+  }
+</script>
 
 <style>
   .back-link {
@@ -138,14 +194,124 @@ const projectAssets = `${base}/projects/${project.slug}`;
     transition: transform 0.3s ease;
   }
   .grid-figure:hover img { transform: scale(1.03); }
-  .drawing-figure {
+
+  .drawing-notice {
+    border-left: 3px solid var(--accent);
+    background: var(--paper);
+    padding: var(--space-4) var(--space-5);
+    margin-bottom: var(--space-5);
+    max-width: 72ch;
+  }
+  .drawing-notice p {
+    margin: 0;
+    font-size: 0.93rem;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .drawing-notice strong { color: var(--accent); }
+
+  .drawing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: var(--space-3);
+  }
+  .drawing-tile {
+    position: relative;
     border: 1px solid var(--aluminum);
     background: white;
-    padding: var(--space-3);
+    padding: 0;
+    cursor: zoom-in;
+    overflow: hidden;
+    aspect-ratio: 17 / 11;
+    transition: border-color 0.15s ease, transform 0.15s ease;
   }
-  .drawing-figure img {
+  .drawing-tile:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+  .drawing-tile img {
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: contain;
     display: block;
   }
+  .drawing-tile__num {
+    position: absolute;
+    top: var(--space-2);
+    right: var(--space-2);
+    background: rgba(26, 26, 26, 0.88);
+    color: var(--paper);
+    padding: 0.2rem 0.55rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+  }
+
+  .lightbox {
+    border: none;
+    background: rgba(26, 26, 26, 0.96);
+    padding: 0;
+    max-width: 100vw;
+    max-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+  }
+  .lightbox::backdrop { background: rgba(0,0,0,0.85); }
+  .lightbox__figure {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    box-sizing: border-box;
+  }
+  .lightbox__figure img {
+    max-width: 100%;
+    max-height: calc(100vh - 80px);
+    object-fit: contain;
+    background: white;
+  }
+  .lightbox__figure figcaption {
+    color: var(--paper);
+    margin-top: var(--space-3);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    opacity: 0.7;
+  }
+  .lightbox__close {
+    position: absolute;
+    top: var(--space-3);
+    right: var(--space-3);
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--paper);
+    padding: 0.4rem 0.9rem;
+    font-size: 0.76rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .lightbox__close:hover { background: var(--paper); color: var(--ink); }
+  .lightbox__nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: var(--paper);
+    border: 1px solid var(--paper);
+    width: 48px;
+    height: 48px;
+    font-size: 1.4rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lightbox__nav:hover { background: var(--paper); color: var(--ink); }
+  .lightbox__nav--prev { left: var(--space-3); }
+  .lightbox__nav--next { right: var(--space-3); }
 </style>

@@ -99,6 +99,52 @@ const process = [
 
   <section class="section">
     <div class="container">
+      <span class="section-num">03 / Deliverables</span>
+      <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-5); max-width: 22ch;">
+        What ships in a complete drawing package.
+      </h2>
+
+      <div class="package-grid">
+        <div class="package-col">
+          <h4 class="package-col__head mono">Installation drawings</h4>
+          <p class="package-col__sub">What's published on the project pages</p>
+          <ul class="package-list">
+            <li>Site reference views the on-floor crew uses to position assemblies</li>
+            <li>Anchor / base plate locations and hole patterns</li>
+            <li>Overall assembly elevations and key dimensions</li>
+            <li>Field-fit notes and tolerance windows</li>
+          </ul>
+          <p class="package-col__note mono">
+            These are the sheets reproduced on each <a href={`${base}/work`}>Work page</a> — the
+            installation set delivered to the field crew.
+          </p>
+        </div>
+        <div class="package-col package-col--full">
+          <h4 class="package-col__head mono">Full fabrication package</h4>
+          <p class="package-col__sub">Included with every project · delivered to the shop</p>
+          <ul class="package-list">
+            <li>Per-part fabrication drawings (AISC / AWS / ASME Y14.5 compliant)</li>
+            <li>Welding callouts, joint preparation, and AWS-spec weld symbols</li>
+            <li>Base-plate, gusset, and connection detail callouts</li>
+            <li>Member-by-member dimensioning with tolerances and finish notes</li>
+            <li>Hardware schedules — fasteners, sealants, gaskets, finishes</li>
+            <li>Revision-controlled section views and exploded assemblies</li>
+            <li>Native files (Inventor / SolidWorks) + DWG + PDF</li>
+            <li>BOM with material specs, mill certs traceability where required</li>
+          </ul>
+          <p class="package-col__note mono">
+            For privacy and IP reasons, full fabrication sets are not published online.
+            <a href={`${base}/contact`}>Request a sample package</a> to review under NDA.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="section">
+    <div class="container">
       <span class="section-num">04 / Process</span>
       <h2 style="margin-top: var(--space-3); margin-bottom: var(--space-5); max-width: 22ch;">
         Five steps from brief to handoff.
@@ -198,6 +244,74 @@ const process = [
   }
   .timeline__desc { font-size: 0.88rem; color: var(--muted); }
 
+  .package-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: var(--space-5);
+    border-top: var(--rule);
+    border-bottom: var(--rule);
+    padding: var(--space-5) 0;
+  }
+  .package-col {
+    padding-right: var(--space-4);
+  }
+  .package-col--full {
+    border-left: 1px solid var(--aluminum);
+    padding-left: var(--space-5);
+    padding-right: 0;
+  }
+  .package-col__head {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: var(--space-2);
+  }
+  .package-col--full .package-col__head { color: var(--ink); }
+  .package-col__sub {
+    color: var(--muted);
+    font-size: 0.88rem;
+    margin-bottom: var(--space-4);
+  }
+  .package-list {
+    display: grid;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+  }
+  .package-list li {
+    padding-left: 1.4rem;
+    position: relative;
+    font-size: 0.94rem;
+  }
+  .package-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .package-col__note {
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    padding-top: var(--space-3);
+    border-top: 1px dashed var(--aluminum);
+    max-width: 48ch;
+  }
+  .package-col__note a {
+    color: var(--accent);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 820px) {
+    .package-grid { grid-template-columns: 1fr; }
+    .package-col--full {
+      border-left: 0;
+      border-top: 1px solid var(--aluminum);
+      padding-left: 0;
+      padding-top: var(--space-5);
+    }
+  }
   @media (max-width: 820px) {
     .tier { grid-template-columns: 1fr; gap: var(--space-3); }
     .timeline { grid-template-columns: 1fr 1fr; }
