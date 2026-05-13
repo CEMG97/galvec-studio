@@ -123,7 +123,7 @@ const jsonLd = {
         {featured.map(p => (
           <a href={`${base}/work/${p.slug}`} class="card project-card">
             <figure class="project-card__cover">
-              <img src={`${base}/projects/${p.slug}/${p.hero}`} alt={p.title} loading="lazy" />
+              <img src={`${base}/projects/${p.slug}/${p.hero}`} alt={p.title} loading="lazy" width="1600" height="900" />
             </figure>
             <div class="card__num" style="margin-top: var(--space-3);">
               {p.category} · {p.drawings.length} {p.drawings.length === 1 ? 'sheet' : 'sheets'}
