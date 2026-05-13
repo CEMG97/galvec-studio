@@ -44,7 +44,6 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdabpapq';
         class="contact-form stack"
         action={FORMSPREE_ENDPOINT}
         method="POST"
-        enctype="multipart/form-data"
       >
         <div class="field">
           <label for="name">Your name</label>
@@ -83,10 +82,11 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdabpapq';
           <label for="message">Project description</label>
           <textarea id="message" name="message" required></textarea>
         </div>
-        <div class="field">
-          <label for="reference">Attach reference (optional · DWG, PDF, sketch)</label>
-          <input id="reference" name="reference" type="file" accept=".dwg,.dxf,.pdf,.png,.jpg,.jpeg" />
-        </div>
+        <p class="attach-note mono">
+          For DWG, DXF, PDF, or sketch references, email them directly to
+          <a href="mailto:cm@galvecstudio.com?subject=Reference%20files">cm@galvecstudio.com</a>
+          after sending this form.
+        </p>
 
         <!-- Honeypot for spam -->
         <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
@@ -120,6 +120,20 @@ const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mdabpapq';
   }
   .sla__row a { border-bottom: 1px solid var(--accent); }
   .contact-form { max-width: 36rem; }
+  .attach-note {
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    padding: var(--space-3) var(--space-4);
+    border-left: 2px solid var(--aluminum);
+    background: var(--paper);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .attach-note a {
+    color: var(--accent);
+    border-bottom: 1px solid currentColor;
+  }
 
   @media (max-width: 820px) {
     .contact-grid { grid-template-columns: 1fr; gap: var(--space-5); }
